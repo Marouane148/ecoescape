@@ -1,0 +1,53 @@
+# Schéma de câblage EcoEscape ESP32
+
+**Note**: Ce fichier est un placeholder pour le schéma Fritzing.
+
+## Connexions requises:
+
+### LDR (Light Dependent Resistor):
+- Une extrémité → 3.3V de l'ESP32
+- Autre extrémité → GPIO 34 ET résistance 10kΩ vers GND
+
+### LED Rouge:
+- Anode (+) → GPIO 5 via résistance 220Ω
+- Cathode (-) → GND
+
+### LED Verte:
+- Anode (+) → GPIO 18 via résistance 220Ω  
+- Cathode (-) → GND
+
+### Alimentation:
+- ESP32 alimenté via USB ou adaptateur 5V
+
+## Schéma ASCII:
+```
+ESP32                    Composants
+=====                    ==========
+
+3.3V ----+
+         |
+         +--- LDR ----+
+                      |
+GPIO 34 -------------+
+                      |
+                   10kΩ
+                      |
+GND ------------------+
+
+GPIO 5 ---- 220Ω ---- LED Rouge ---- GND
+
+GPIO 18 --- 220Ω ---- LED Verte ---- GND
+```
+
+## Instructions:
+1. Utilisez une breadboard pour les connexions
+2. Vérifiez la polarité des LEDs
+3. Testez le circuit avant de flasher le code
+4. Calibrez le seuil de luminosité si nécessaire
+
+Pour créer le vrai schéma Fritzing:
+1. Ouvrez Fritzing
+2. Ajoutez un ESP32 DevKit v1
+3. Ajoutez les composants listés ci-dessus
+4. Connectez selon le schéma
+5. Exportez en PNG et remplacez ce fichier

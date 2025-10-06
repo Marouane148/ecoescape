@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoEscape - Escape Game Écologique</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🌍 EcoEscape</h1>
+        <p>Sauve la planète en résolvant les énigmes écologiques !</p>
+    </header>
+
+    <main>
+        <!-- ÉNIGME 1 : TRI SÉLECTIF -->
+        <section id="step1" class="puzzle-section">
+            <h2>🗂️ Énigme 1 : Tri Sélectif</h2>
+            <p class="instructions">Glisse chaque déchet dans la bonne poubelle pour réparer le système de tri !</p>
+            
+            <div class="game-area">
+                <!-- Déchets à trier -->
+                <div class="waste-container">
+                    <h3>Déchets à trier :</h3>
+                    <div class="waste-items">
+                        <div class="dechet" draggable="true" data-type="verre">🍷 Bouteille</div>
+                        <div class="dechet" draggable="true" data-type="plastique">🥤 Canette</div>
+                        <div class="dechet" draggable="true" data-type="papier">📰 Journal</div>
+                        <div class="dechet" draggable="true" data-type="dangereux">🔋 Pile</div>
+                        <div class="dechet" draggable="true" data-type="plastique">🥛 Bouteille plastique</div>
+                    </div>
+                </div>
+
+                <!-- Poubelles -->
+                <div class="bins-container">
+                    <div class="poubelle" data-type="verre">
+                        <div class="bin-icon">♻️</div>
+                        <div class="bin-label">Verre</div>
+                    </div>
+                    <div class="poubelle" data-type="plastique">
+                        <div class="bin-icon">🗂️</div>
+                        <div class="bin-label">Plastique/Métal</div>
+                    </div>
+                    <div class="poubelle" data-type="papier">
+                        <div class="bin-icon">📋</div>
+                        <div class="bin-label">Papier</div>
+                    </div>
+                    <div class="poubelle" data-type="dangereux">
+                        <div class="bin-icon">⚠️</div>
+                        <div class="bin-label">Dangereux</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="msg" class="message"></div>
+        </section>
+
+        <!-- ÉNIGME 2 : PANNEAU SOLAIRE -->
+        <section id="step2" class="puzzle-section hidden">
+            <h2>☀️ Énigme 2 : Panneau Solaire</h2>
+            <p class="instructions">Répare le panneau solaire en l'exposant à la lumière !</p>
+            
+            <div class="solar-panel">
+                <div class="energy-display">
+                    <h3>Niveau d'énergie :</h3>
+                    <div class="energy-bar-container">
+                        <div id="energy" class="energy-bar"></div>
+                    </div>
+                    <div class="energy-percentage">0%</div>
+                </div>
+                
+                <div class="status-display">
+                    <h3>État du panneau :</h3>
+                    <div class="led-display">
+                        <span>LED : </span>
+                        <span id="led">🔴</span>
+                    </div>
+                    <div class="iot-status">
+                        <p>💡 <strong>Instructions IoT :</strong></p>
+                        <p>Allume ta lampe ou place l'ESP32 près d'une source lumineuse !</p>
+                        <p>La LED verte s'allumera quand il y aura assez de lumière.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="final" class="message"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>EcoEscape © 2025 - Projet éducatif IoT</p>
+        <div class="connection-status">
+            <span id="connection">🔴 Déconnecté</span>
+        </div>
+    </footer>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
